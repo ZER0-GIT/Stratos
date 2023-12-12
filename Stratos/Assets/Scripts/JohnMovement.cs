@@ -13,6 +13,7 @@ public class JohnMovement : MonoBehaviour
     private float Horizontal;
     private bool Grounded;
     private float LastShoot;
+    private int Healt = 5;
 
     void Start()
     {
@@ -66,5 +67,12 @@ public class JohnMovement : MonoBehaviour
     private void FixedUpdate()
     {
         Rigidbody2D.velocity = new Vector2(Horizontal * Speed, Rigidbody2D.velocity.y);
+    }
+
+    public void Hit()
+    {
+        Healt = Healt - 1;
+        if (Healt <= 0) Destroy(gameObject);
+
     }
 }
